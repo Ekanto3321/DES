@@ -1,0 +1,11 @@
+#!/bin/bash 
+
+echo "og:\n";
+cat ip.txt;
+echo "\n";
+
+echo"intermediate:\n";
+cat m.txt;
+echo"\n";
+
+echo 

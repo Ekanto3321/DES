@@ -1,0 +1,1 @@
+Hello, this is a huge text which I am trying to encrypt using DES encryption system as a part of my DES implementation in raw C and sheer determination. Hi Adrita! wish me luck >~</
