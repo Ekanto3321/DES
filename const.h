@@ -3,9 +3,24 @@
 #include<stdio.h>
 #include<string.h>
 
+
+FILE *fpi, *fpo, *fpm;
 unsigned char block_og[8];
 unsigned char block[8];
-FILE *fpi, *fpo, *fpm;
+
+struct key {
+
+  unsigned char key[7];
+  unsigned char key_next[7];
+  
+  unsigned char key_l[4];
+  unsigned char key_r[4];
+
+  unsigned char key_next_l[4];
+  unsigned char key_next_l[4];
+
+} key;
+
 int block_size = 8;
 int offset, idx;
 int buff_read, buff_read_b;

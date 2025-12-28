@@ -5,7 +5,10 @@ void i_perm();
 void f_perm();
 void test();
 void rounds(int no);
-void write_file();
+void write_file(FILE *p);
+void print_block();
+
+void keyscheduler();
 
 int main(int argc, char *argv[]){
 
@@ -22,30 +25,24 @@ int main(int argc, char *argv[]){
     
     if(buff_read<8)for(int i = buff_read_b; i<block_size; i++)block[i]=0; //zero padding of last 8 bytes
     
-    // initial permutation 
+    //initial permutation 
     i_perm();
     write_file(fpm);
-    
-    
+
+
     // all other calculations to be implemented here 
-      
+    print_block();
 
     // final permutation
     f_perm();
     write_file(fpo);
     
+    //test();
     printf("Read %u of 8 bytes\n", buff_read);
+    i++;
   }
 
-  printf("buff_read: %d\n", buff_read_b);
   
-  set_bit(63,1); 
-  
-  for(int i=0;i<8;i++) {
-   for(int j = 7; j >= 0; j--) printf("%d", (block[i] >> j) & 1);
-     printf(" ");
-  }
-  printf("%s\n",block);
     
 
   fclose(fpi);
@@ -64,8 +61,6 @@ void i_perm(){
     set_bit((i+1),get_bit(ip[i])); 
 
   }
-
-
 
 }
 
@@ -90,6 +85,25 @@ void write_file(FILE *p){
   
   }
 
+
+}
+
+void print_block(){
+
+  printf("buff_read: %d\n", buff_read_b); 
+
+  for(int i=0;i<8;i++) {
+   for(int j = 7; j >= 0; j--) printf("%d", (block[i] >> j) & 1);
+     printf(" ");
+  }
+  printf("\n");
+
+}
+
+void keyscheduler(){
+  
+    
+  
 
 }
 
