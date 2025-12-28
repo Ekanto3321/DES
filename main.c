@@ -22,13 +22,18 @@ int main(int argc, char *argv[]){
     
     if(buff_read<8)for(int i = buff_read_b; i<block_size; i++)block[i]=0; //zero padding of last 8 bytes
     
+    // initial permutation 
     i_perm();
     write_file(fpm);
+    
+    
+    // all other calculations to be implemented here 
+      
+
+    // final permutation
     f_perm();
     write_file(fpo);
-
-
-
+    
     printf("Read %u of 8 bytes\n", buff_read);
   }
 
