@@ -7,7 +7,7 @@ void test();
 void rounds(int no);
 void write_file(FILE *p);
 void print_block();
-
+void print_arb(char *st);
 void keyscheduler();
 
 int main(int argc, char *argv[]){
@@ -15,6 +15,8 @@ int main(int argc, char *argv[]){
   fpi = fopen("ip.txt","r");
   fpo = fopen("op.txt","a");
   fpm = fopen("m.txt", "a");
+  fpk = fopen("k.txt", "r");
+
   int i = 0;
   buff_read = 8;
 
@@ -36,17 +38,23 @@ int main(int argc, char *argv[]){
     // final permutation
     f_perm();
     write_file(fpo);
-    
+   
+   
     //test();
     printf("Read %u of 8 bytes\n", buff_read);
     i++;
   }
-
   
-    
+  fread(key_og, 1, block_size, fpk);
+  
+  print_arb(key_og);
+
+
 
   fclose(fpi);
   fclose(fpo);
+  fclose(fpk);
+  fclose(fpm);
   return 0;
 }
 
@@ -97,6 +105,23 @@ void print_block(){
      printf(" ");
   }
   printf("\n");
+
+}
+
+void print_arb(char *st){
+
+  printf("Key: \n");
+  for(int i=0;i<7;i++) {
+    for(int j = 7; j >= 0; j--) printf("%d", (st[i] >> j) & 1);
+      printf(" ");
+    }
+  printf("\n");  
+
+}
+
+void load_key_to_struct(){
+
+
 
 }
 

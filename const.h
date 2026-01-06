@@ -4,9 +4,10 @@
 #include<string.h>
 
 
-FILE *fpi, *fpo, *fpm;
+FILE *fpi, *fpo, *fpm, *fpk;
 unsigned char block_og[8];
 unsigned char block[8];
+unsigned char key_og[7];
 
 struct key {
 
@@ -17,7 +18,7 @@ struct key {
   unsigned char key_r[4];
 
   unsigned char key_next_l[4];
-  unsigned char key_next_l[4];
+  unsigned char key_next_r[4];
 
 } key;
 
